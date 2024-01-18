@@ -1,8 +1,25 @@
 {
   "version": 2,
-  "dgSpecHash": "s5Os0hQaAONwW6UwQDVg6HAzkP+I5UcApiyU+AaVTQiX+lL4Zm++0M7HEH2dCEJ1axawghuBg/K9VfH/j1sOVw==",
+  "dgSpecHash": "oPaaZCCr7jAuQoJvOrq5eFq+krmSoNL3wote3XLd+AocQ/2Og7A3q1+pHDX+D4h86StEDyOKaB6DBRE/4x7+QQ==",
   "success": true,
   "projectFilePath": "D:\\githubcurse\\IronQuest\\IronQuest.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.14\\microsoft.aspnetcore.authorization.7.0.14.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.14\\microsoft.aspnetcore.components.7.0.14.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\7.0.14\\microsoft.aspnetcore.components.analyzers.7.0.14.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\7.0.14\\microsoft.aspnetcore.components.forms.7.0.14.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.aspnetcore.components.web\\7.0.14\\microsoft.aspnetcore.components.web.7.0.14.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.aspnetcore.metadata\\7.0.14\\microsoft.aspnetcore.metadata.7.0.14.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.extensions.localization\\7.0.14\\microsoft.extensions.localization.7.0.14.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\7.0.14\\microsoft.extensions.localization.abstractions.7.0.14.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\microsoft.jsinterop\\7.0.14\\microsoft.jsinterop.7.0.14.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\mudblazor\\6.12.0\\mudblazor.6.12.0.nupkg.sha512",
+    "C:\\Users\\Karmazynowy\\.nuget\\packages\\system.io.pipelines\\7.0.0\\system.io.pipelines.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

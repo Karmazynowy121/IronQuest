@@ -1,9 +1,104 @@
 ﻿@page "/"
+@using IronQuest.Models
+@using MudBlazor;
+@using Interface;
+@inject IUserGroupService userGroupService;
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<HeadContent>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+</HeadContent>
 
-Welcome to your new app.
+<MudDropContainer T="User" Items="_users" ItemsSelector="@((item, dropzone) => item.AssignedGroupId == dropzone)" ItemDropped="UserUpdated" Class="d-flex flex-wrap flex-grow-1">
+    <ChildContent>
+        <div class="row w-100">
+            <div class="col-5">
+                <div class="site-card">
+                    <MudList Clickable="true" Class="d-flex flex-column mud-height-full">
+                        <MudListSubheader>Użytkownicy</MudListSubheader>
+                        <MudDropZone T="User" Identifier="0" Class="flex-grow-1 flex-row" AllowReorder="true" Style="@($"min-height: 50px")" />
+                    </MudList>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="site-card">
+                    @foreach (var group in _groups)
+                    {
+                        <MudPaper Class="ma-4 flex-grow-1">
+                            <MudList Clickable="true" Class="d-flex flex-column mud-height-full">
+                                <MudListSubheader>@group.Name</MudListSubheader>
+                                    <MudDropZone T="User" Identifier="@group.Id" Class="flex-grow-1 flex-row" AllowReorder="true" Style="@($"min-height: 50px;")" />
+                                </MudList>
+                            </MudPaper>
+                    }
+                </div>
+            </div>
+        </div>
+    </ChildContent>
+    <ItemRenderer>
+        <MudMenu ActivationEvent="MouseEvent.RightClick" PositionAtCursor="true" @onclick="MudMenuOnClickHandler">
+            <ActivatorContent>
+                <MudCard>
+                    <MudCardContent>
+                        <MudListItem Text="@(context.FirstName + " " + context.LastName)" />
+                    </MudCardContent>
+                </MudCard>
+            </ActivatorContent>
+            <ChildContent>
+                <MudRadio Value="context.IsLocked" Color="Color.Primary" Dense="true">Zablokuj pozycję użytkownika</MudRadio>
+            </ChildContent>
+        </MudMenu>
+    </ItemRenderer>
+</MudDropContainer>
+<div class="d-flex flex-column">
+    @foreach (var log in _logs)
+    {
+        <span>
+            @log.Message
+        </span>
+    }
+</div>
+@code {
+    private List<Log> _logs = new List<Log>();
+    private List<User> _users = new();
+    private List<Group> _groups = new();
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    protected override async Task OnInitializedAsync()
+    {
+        var groups = userGroupService.GetAllGroups();
+        if (groups != null)
+        {
+            _groups = groups;
+        }
+
+        var users = userGroupService.GetNonGroupedUsers();
+        if (users != null)
+        {
+            _users = users;
+        }
+    }
+
+
+
+    private void UserUpdated(MudItemDropInfo<User> dropUser)
+    {
+        dropUser.Item.AssignedGroupId = dropUser.DropzoneIdentifier;
+        _logs.Add(new Log
+            {
+                Id = new Guid().ToString(),
+                Message = $"Uzytownik {dropUser.Item.FirstName} {dropUser.Item.LastName} został przeniesiony do Grupy {dropUser.DropzoneIdentifier}"
+            });
+
+    }
+    private void MudMenuOnClickHandler(MouseEventArgs e)
+    {
+        if (e.Button == 2)
+        {
+            return;
+        }
+    }
+
+
+}
